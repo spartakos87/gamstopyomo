@@ -2,7 +2,7 @@ from collections import OrderedDict
 
 """
 Insert table as dictionary so we must take first the key Table
-
+Next from title extract funct and comments
 """
 
 def table(t):
