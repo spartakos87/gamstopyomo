@@ -14,8 +14,7 @@ def table(t):
 		b,e = find_index(first_line,i)
 		for j in range(len(y)):
 			if new_tb[j][b:e] != '':
-				element = forward(new_tb[j][b:]) + 
-							backward[j][:b]
+				element = forward(new_tb[j][b:]) + backward[j][:b]
 				
 			
 					
