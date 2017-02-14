@@ -1,10 +1,14 @@
+from collections import OrderedDict
+
 """
 Insert table as dictionary so we must take first the key Table
 
 """
 
 def table(t):
-	extract_table = {}
+#	extract_table = {}
+	# Dictionary is ordered as we input the data
+	extract_table = OrderedDict()
 	t = t['Table']
 	title = t[0].replace('Table','')
 	table_d = {}
