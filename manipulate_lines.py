@@ -1,5 +1,7 @@
 from find_parenthesis import find_parenthesis as fp
 from find_slashes import find_slashes as fs
+
+
 """
 Manipulate lines like this, a     age of trees    / a01*a24 /
 This function must return the variable,a
@@ -8,6 +10,7 @@ And values of it , which there are between slashes,a01*a24
 But in case like that,mc(m) cutting months  / jul, aug, sep, oct /
 We take and value between () , the m
 """
+
 def manipulate_lines(text):
 	name_fun = ''
 	contain_par = ''
