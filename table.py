@@ -1,11 +1,18 @@
+"""
+Insert table as dictionary so we must take first the key Table
+
+"""
 
 def table(t):
-	title = t.replace('Table','')
+	extract_table = {}
+	t = t['Table']
+	title = t[0].replace('Table','')
 	table_d = {}
+	# This dict include the name and comments of table
 	table_d[title.split()[0]] = title.split(title.split()[0])[-1]
 	t_ = [i for i in t[1:] if i != '']
-	x = t_[0].split()
-	y = []
+	x = t_[0].split() # Columns
+	y = [] # Lines
 	for i in t_[1:]:
 		y.append(i.split()[0])	
 	new_tb = t_[1:]
@@ -14,9 +21,16 @@ def table(t):
 		b,e = find_index(first_line,i)
 		for j in range(len(y)):
 			if new_tb[j][b:e] != '':
-				element = forward(new_tb[j][b:]) + backward[j][:b]
-				
-			
+				fo = forward(new_tb[j][b:]) 
+				ba = backward(new_tb[j][:b])
+				element = ba + fo
+			else:
+				element = ''
+			extract_table[(y[j],i)] = element
+	# Return a dictionary with in tuple which first element is
+	# the line and second element the column
+	# and the value is the value..		
+	return extract_table
 					
 
 def find_index(line,word):
@@ -43,11 +57,10 @@ def forward(line):
 	return w
 
 def backward(line):
-#line t_[0][:12]
 	w = ''
-	for i in reversed(s):
+	for i in reversed(line):
 		if not i.isspace():
 			w += i
 		else:
 			break
-	
+	return w
